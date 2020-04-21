@@ -1,0 +1,373 @@
+@charset "UTF-8";
+body {
+  height: 10000px;
+  background-color: yellowgreen;
+}
+
+/* 顶部固定导航 start */
+.topnav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.topnav .container:before, .topnav .container:after {
+  content: "";
+  display: table;
+}
+
+.topnav .container:after {
+  clear: both;
+}
+
+.topnav .container {
+  *zoom: 1;
+}
+
+.topnav-logo {
+  float: left;
+  margin-top: 21px;
+}
+
+.topnav-center {
+  float: left;
+  margin-left: 90px;
+}
+
+.topnav-center:before, .topnav-center:after {
+  content: "";
+  display: table;
+}
+
+.topnav-center:after {
+  clear: both;
+}
+
+.topnav-center {
+  *zoom: 1;
+}
+
+.topnav-center li {
+  float: left;
+  margin: 0 20px;
+}
+
+.topnav-center span {
+  float: left;
+  line-height: 100px;
+  color: #333333;
+  font-size: 16px;
+}
+
+.topnav-center a {
+  display: block;
+  line-height: 100px;
+  font-size: 16px;
+  color: #818181;
+}
+
+.topnav-center a:hover {
+  color: #cf0f32;
+}
+
+.topnav-listbtn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding-top: 38px;
+  width: 120px;
+  height: 120px;
+  background-color: #cf1132;
+  -webkit-transition: all .3s ease-in;
+  transition: all .3s ease-in;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.topnav-listbtn i {
+  display: block;
+  width: 34px;
+  height: 34px;
+  margin: 0 auto;
+  background-image: url(../images/index/topnav_spriter.png);
+  background-repeat: no-repeat;
+  background-position: 0px 0px;
+}
+
+.topnav-listbtn p {
+  font-size: 14px;
+  color: #fff;
+  text-align: center;
+  line-height: 26px;
+  height: 26px;
+}
+
+.topnav-listbtn.open {
+  background-color: #282b2d;
+}
+
+.topnav-listbtn.open i {
+  background-position: -34px 0px;
+}
+
+.topnav-listbtn.open p {
+  display: none;
+}
+
+.gamenav {
+  position: absolute;
+  top: 100px;
+  left: 0;
+  width: 100%;
+  background-color: #282b2d;
+  padding-bottom: 60px;
+  display: none;
+}
+
+.gamenav-top {
+  color: white;
+  margin: 40px 40px 25px;
+  font-size: 20px;
+  text-indent: 25px;
+  line-height: 20px;
+}
+
+.gamenav-top span {
+  float: right;
+  color: #f2ebeb;
+  font-size: 12px;
+}
+
+.gamenav-top span i {
+  display: inline-block;
+  background-image: url(../images/index/topnav_spriter.png);
+  background-repeat: no-repeat;
+  vertical-align: middle;
+}
+
+.icon-hot {
+  background-position: -56px -48px;
+  width: 11px;
+  height: 11px;
+}
+
+.icon-new {
+  background-position: -56px -34px;
+  width: 11px;
+  height: 11px;
+}
+
+.icon-1st {
+  background-position: -68px 0px;
+  width: 18px;
+  height: 9px;
+}
+
+.gamenav-client {
+  width: 445px;
+}
+
+.gamenav-mobile {
+  width: 815px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.gamenav-client,
+.gamenav-mobile {
+  float: left;
+}
+
+.gamenav-client > div:nth-child(1),
+.gamenav-mobile > div:nth-child(1) {
+  background-color: #35373a;
+}
+
+.gamenav-client h3,
+.gamenav-mobile h3 {
+  border-left: 4px #dd1136 solid;
+  height: 16px;
+  line-height: 16px;
+  text-indent: 36px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #dd1136;
+}
+
+.gamenav-client-top {
+  padding: 17px 0;
+  padding-left: 40px;
+}
+
+.gamenav-mobile-top {
+  padding: 17px 0;
+  border-left: 1px solid #454545;
+}
+
+.gamenav-client-role {
+  float: left;
+  width: 298px;
+}
+
+.gamenav-client-relax {
+  float: left;
+  width: 146px;
+  border-left: 1px #454545 solid;
+}
+
+.gamenav-mobile-hot {
+  float: left;
+  width: 177px;
+  border-left: 1px #454545 solid;
+}
+
+.gamenav-mobile-new {
+  float: left;
+  width: 610px;
+  border-left: 1px #454545 solid;
+}
+
+.gamenav-mobile-new li {
+  width: 146px;
+}
+
+.gamenav-client-relax,
+.gamenav-client-role,
+.gamenav-mobile-hot,
+.gamenav-mobile-new {
+  padding-top: 35px;
+}
+
+.gamenav-client-relax h4,
+.gamenav-client-role h4,
+.gamenav-mobile-hot h4,
+.gamenav-mobile-new h4 {
+  font-size: 14px;
+  color: #6b6b6c;
+  font-weight: 700;
+  text-indent: 40px;
+  margin-bottom: 20px;
+}
+
+.gamenav-client-relax ul,
+.gamenav-client-role ul,
+.gamenav-mobile-hot ul,
+.gamenav-mobile-new ul {
+  padding-left: 36px;
+}
+
+.gamenav-client-relax li,
+.gamenav-client-role li,
+.gamenav-mobile-hot li,
+.gamenav-mobile-new li {
+  float: left;
+}
+
+.gamenav-client-relax li:nth-child(odd),
+.gamenav-client-role li:nth-child(odd),
+.gamenav-mobile-hot li:nth-child(odd),
+.gamenav-mobile-new li:nth-child(odd) {
+  width: 136px;
+}
+
+.gamenav-client-relax a,
+.gamenav-client-role a,
+.gamenav-mobile-hot a,
+.gamenav-mobile-new a {
+  color: #c3c3c3;
+  font-size: 14px;
+  line-height: 28px;
+}
+
+.gamenav-client-relax a:hover,
+.gamenav-client-role a:hover,
+.gamenav-mobile-hot a:hover,
+.gamenav-mobile-new a:hover {
+  color: #fff;
+  font-weight: 700;
+}
+
+.gamenav-client-relax i,
+.gamenav-client-role i,
+.gamenav-mobile-hot i,
+.gamenav-mobile-new i {
+  display: inline-block;
+  background-image: url(../images/index/topnav_spriter.png);
+  background-repeat: no-repeat;
+  vertical-align: middle;
+  margin: 0 5px;
+}
+
+.gamenav-closebtn {
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  margin-left: -38px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.gamenav-closebtn i {
+  display: block;
+  width: 56px;
+  height: 14px;
+  background-image: url(../images/index/topnav_spriter.png);
+  background-position: 0px -34px;
+  background-repeat: no-repeat;
+}
+
+.gamenav-closebtn:hover i {
+  background-position: 0px -48px;
+}
+
+/* 顶部固定导航 end */
+/* 头部 start */
+header {
+  position: relative;
+  width: 100%;
+}
+
+.header-carousel li {
+  height: 950px;
+  background-image: url(../images/index/header_carousel_01.jpg);
+  background-repeat: no-repeat;
+  background-position: center top;
+}
+
+.header-carousel-content {
+  width: 452px;
+  position: absolute;
+  left: 0;
+  top: 265px;
+  background-color: yellow;
+}
+
+.header-carousel-content h2 {
+  font-size: 36px;
+  line-height: 52px;
+  color: #272a2c;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.header-carousel-content h3 {
+  font-size: 36px;
+  line-height: 52px;
+  color: #272a2c;
+  padding-bottom: 10px;
+  border-bottom: 1px #cf1132 solid;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.header-carousel-content p {
+  font-size: 14px;
+  margin-top: 15px;
+  margin-bottom: 30px;
+}
+/*# sourceMappingURL=index.css.map */
