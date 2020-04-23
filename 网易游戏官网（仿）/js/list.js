@@ -877,3 +877,43 @@ let mainHotGameList = [
         p: "享立夏美食，参加称重大赛，开启斗蛋对决，领永久挂件、珍稀宝箱等海量福利！",
     }
 ]
+
+// main主体部分  新游测试的数据
+let mainNewGameList = [
+    {
+        imgSrc: "./images/index/main_new_01.png",
+        name: "《天谕》手游",
+        betaType: "谕研测试",
+        startDate: "4月17日"
+    },
+    {
+        imgSrc: "./images/index/main_new_02.png",
+        name: "猎手之王",
+        betaType: "终极付费测试",
+        startDate: "3月26日"
+    },
+    {
+        imgSrc: "./images/index/main_new_03.png",
+        name: "《一起优诺》",
+        betaType: "iOS首发",
+        startDate: "3月17日"
+    },
+    {
+        imgSrc: "./images/index/main_new_04.png",
+        name: "风云岛行动",
+        betaType: "全平台公测",
+        startDate: "3月5日"
+    },
+    {
+        imgSrc: "./images/index/main_new_05.png",
+        name: "重装上阵",
+        betaType: "全平台先锋不删档",
+        startDate: "1月14日"
+    },
+    {
+        imgSrc: "./images/index/main_new_06.png",
+        name: "三国如龙传",
+        betaType: "热血服首发",
+        startDate: "1月10日"
+    }
+]

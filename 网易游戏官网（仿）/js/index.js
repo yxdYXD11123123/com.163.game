@@ -23,13 +23,13 @@ $.each(newGameList, function (i, j) {
 $(".topnav-listbtn").on("click", function () {
     // 变化顶部列表按钮样式
     $(this).toggleClass("open")
-    // 切换 显示/隐藏  gamenav
-    $(".gamenav").slideToggle("linear")
+    // 切换 显示/隐藏  gamenav    (注意：这里必须是针对.topnav 中的.gamenav    页面底部的游戏菜单也是.gamenav)
+    $(".topnav .gamenav").slideToggle("linear")
 })
 // 点击gamenav的收起按钮，收起gamenav
 $(".gamenav-closebtn").on("click", closeGameNav)
 function closeGameNav() {
-    $(".gamenav").slideUp("linear")
+    $(".topnav .gamenav").slideUp("linear")
     // 并且给 顶部列表按钮添加类名
     $(".topnav-listbtn").removeClass("open")
 }
@@ -150,6 +150,8 @@ function renderHotGameList() {
     mainHotGameIndex = endindex + 1
 }
 
+// 节流阀
+let hotGameFlag = true
 animateHotGameLi()
 // 将已有的数据 热门游戏的 li 用动画的方式 依次放大显示
 function animateHotGameLi() {
@@ -162,10 +164,35 @@ function animateHotGameLi() {
             $(".main-hot-content li").eq(i).animate({
                 transform: "scale(1)",
                 opacity: 1
-            }, 1000)
-        }, i * 200)
+            }, 450, function () {
+                if ($(this).index() == 5) {
+                    // 动画结束，打开阀门
+                    hotGameFlag = true
+                }
+            })
+        }, i * 70)
     }
 }
+
+
+/**
+ *   新游测试渲染数据
+ */
+$.each(mainNewGameList, function (i, j) {
+    $(".main-new ul").append(`
+    <li>
+    <a href="#">
+        <img src="${j.imgSrc}" alt="">
+        <p>
+            <b>${j.name}</b>
+            <s>${j.betaType}</s>
+            <span><i></i>${j.startDate}</span>
+        </p>
+        <i class="main-new-arrow"></i>
+    </a>
+</li>
+    `)
+})
 
 
 
@@ -226,31 +253,55 @@ function clickTabLi() {
  */
 $(".main-hot-title span").on("click", clickChangeHot)
 function clickChangeHot() {
-    // 这里的动画在 改变transform属性 ： 所以 需要一个让jquery的animate兼容transform的插件
-    // 利用延时器  结合  for循环实现，让6个li 依次间隔一定时间开始 缩小/透明，
-    for (let i = 0; i < 6; i++) {
-        // 也就生成6个延时器，依次是 延时 100ms  200ms  300ms .......  也就是每个li的动画效果间隔了100ms
-        setTimeout(function () {
-            // 每个延时器到时间后就让 对应的li 开始动画效果
-            $(".main-hot-content li").eq(i).animate({
-                transform: "scale(0)",
-                opacity: 0
-            }, 1000, function () {
-                // 完全缩小，透明后，也就是动画结束后，清除自己
-                if ($(this).index() == 5) {
-                    // 如果这里是第六个li 已经完成动画  清空 ul
-                    $(".main-hot-content").empty()
-                }
-                // 清除自己后，看看 ul 里面还有没有元素，如果已经什么都没有了，就可以开始渲染新数据了
-                if ($(".main-hot-content").children().length == 0) {
-                    console.log($(".main-hot-content").children().length);
-                    // 渲染新数据 （后面6个数据）
-                    renderHotGameList()
-                    // 将新数据用动画展示出来
-                    animateHotGameLi()
-                }
-            })
-        }, i * 200)
+    if (hotGameFlag) {
+        // 开始动画，关闭阀门
+        hotGameFlag = false
+        // 这里的动画在 改变transform属性 ： 所以 需要一个让jquery的animate兼容transform的插件
+        // 利用延时器  结合  for循环实现，让6个li 依次间隔一定时间开始 缩小/透明，
+        for (let i = 0; i < 6; i++) {
+            // 也就生成6个延时器，依次是 延时 100ms  200ms  300ms .......  也就是每个li的动画效果间隔了100ms
+            setTimeout(function () {
+                // 每个延时器到时间后就让 对应的li 开始动画效果
+                $(".main-hot-content li").eq(i).animate({
+                    transform: "scale(0)",
+                    opacity: 0
+                }, 450, function () {
+                    // 完全缩小，透明后，也就是动画结束后，清除自己
+                    if ($(this).index() == 5) {
+                        // 如果这里是第六个li 已经完成动画  清空 ul
+                        $(".main-hot-content").empty()
+                    }
+                    // 清除自己后，看看 ul 里面还有没有元素，如果已经什么都没有了，就可以开始渲染新数据了
+                    if ($(".main-hot-content").children().length == 0) {
+                        console.log($(".main-hot-content").children().length);
+                        // 渲染新数据 （后面6个数据）
+                        renderHotGameList()
+                        // 将新数据用动画展示出来
+                        animateHotGameLi()
+                    }
+                })
+            }, i * 70)
+        }
     }
 }
 
+
+/**
+ *  底部游戏菜单  查看更多/收起功能
+ */
+let $viewMoreBtn = $(".bottom-gamenav-viewmore")
+$viewMoreBtn.on("click", clickViewMore)
+function clickViewMore() {
+    if ($viewMoreBtn.html() == "查看更多") {
+        $(".bottom-gamenav .gamenav").animate({
+            height: 709
+        }, 300)
+        $viewMoreBtn.html("收起")
+    }
+    else {
+        $(".bottom-gamenav .gamenav").animate({
+            height: 460
+        }, 300)
+        $viewMoreBtn.html("查看更多")
+    }
+}

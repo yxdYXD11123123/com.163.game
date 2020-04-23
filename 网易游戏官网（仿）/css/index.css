@@ -1,8 +1,4 @@
 @charset "UTF-8";
-body {
-  height: 10000px;
-}
-
 /* 顶部固定导航 start */
 .topnav {
   position: absolute;
@@ -183,6 +179,7 @@ body {
 .gamenav-client > div:nth-child(1),
 .gamenav-mobile > div:nth-child(1) {
   background-color: #35373a;
+  color: #dd1136;
 }
 
 .gamenav-client h3,
@@ -193,7 +190,6 @@ body {
   text-indent: 36px;
   font-size: 16px;
   font-weight: 700;
-  color: #dd1136;
 }
 
 .gamenav-client-top {
@@ -679,6 +675,7 @@ header {
 .banner {
   padding-top: 40px;
   padding-bottom: 40px;
+  height: 130px;
   background-color: #f6f7fb;
 }
 
@@ -735,6 +732,7 @@ header {
 /* main主体部分  start */
 main {
   background-color: #f6f7fb;
+  height: 810px;
 }
 
 main:before, main:after {
@@ -911,5 +909,423 @@ main {
           animation: enterfade .3s linear .2s 1 normal;
 }
 
+.main-new {
+  float: left;
+  width: 300px;
+}
+
+.main-new h2 {
+  font-size: 22px;
+  color: #272a2c;
+  border-left: 4px #cf1132 solid;
+  line-height: 22px;
+  text-indent: 15px;
+  margin-bottom: 30px;
+  font-weight: normal;
+}
+
+.main-new ul {
+  border: 1px solid #ededed;
+}
+
+.main-new li {
+  border-top: 1px solid #ededed;
+  background-color: white;
+  -webkit-transition: all ease .3s;
+  transition: all ease .3s;
+}
+
+.main-new li:hover {
+  background-color: #f0f2f7;
+}
+
+.main-new li:hover .main-new-arrow {
+  background-image: url(../images/index/main_new_arrow_red.png);
+}
+
+.main-new a {
+  position: relative;
+  display: block;
+  height: 88px;
+  padding: 20px 42px 0px 26px;
+}
+
+.main-new img {
+  float: left;
+  width: 68px;
+  height: 68px;
+  margin-right: 22px;
+}
+
+.main-new p {
+  float: left;
+  width: 140px;
+}
+
+.main-new b,
+.main-new s,
+.main-new span {
+  display: block;
+}
+
+.main-new b {
+  font-size: 16px;
+  color: #555;
+  line-height: 22px;
+  height: 22px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-style: normal;
+}
+
+.main-new s,
+.main-new span {
+  color: #999;
+  line-height: 24px;
+  height: 24px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.main-new s {
+  font-size: 14px;
+}
+
+.main-new span {
+  font-size: 12px;
+}
+
+.main-new span i {
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+  background-image: url(../images/index/tools_spriter.png);
+  background-repeat: no-repeat;
+  background-position: -37px -20px;
+  vertical-align: middle;
+  margin-right: 7px;
+}
+
+.main-new-arrow {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  margin-top: -14px;
+  width: 15px;
+  height: 28px;
+  background-image: url(../images/index/main_new_arrow.png);
+  background-repeat: no-repeat;
+  -webkit-transition: all ease .3s;
+  transition: all ease .3s;
+}
+
 /* main主体部分  end */
+/* 底部游戏菜单  start */
+.bottom-gamenav {
+  padding-bottom: 40px;
+}
+
+.bottom-gamenav .gamenav {
+  position: static;
+  display: block;
+  background-color: #fff;
+  border-left: 1px solid #eee;
+  border-right: 1px solid #eee;
+  padding-bottom: 0;
+  height: 460px;
+  overflow: hidden;
+}
+
+.bottom-gamenav .gamenav:before, .bottom-gamenav .gamenav:after {
+  content: "";
+  display: table;
+}
+
+.bottom-gamenav .gamenav:after {
+  clear: both;
+}
+
+.bottom-gamenav .gamenav {
+  *zoom: 1;
+}
+
+.bottom-gamenav .gamenav a {
+  color: #666666;
+}
+
+.bottom-gamenav .gamenav a:hover {
+  font-weight: 700;
+  color: #666666;
+}
+
+.bottom-gamenav .gamenav-client > div:nth-child(1),
+.bottom-gamenav .gamenav-mobile > div:nth-child(1) {
+  background-color: #fbfbfb;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  color: #222222;
+  border-color: #eee;
+}
+
+.bottom-gamenav .gamenav-client-relax,
+.bottom-gamenav .gamenav-client-role,
+.bottom-gamenav .gamenav-mobile-hot,
+.bottom-gamenav .gamenav-mobile-new {
+  border-color: #eee;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding-top: 20px;
+}
+
+.gamenav-client-relax h4,
+.gamenav-client-role h4,
+.gamenav-mobile-hot h4,
+.gamenav-mobile-new h4 {
+  color: #c21d35;
+}
+
+.bottom-gamenav-viewmore {
+  display: block;
+  background-color: #f1f1f1;
+  width: 120px;
+  height: 38px;
+  text-align: center;
+  line-height: 38px;
+  margin: 40px auto 0;
+  font-size: 14px;
+  color: #6d6d6d;
+}
+
+.bottom-gamenav-viewmore:hover {
+  background-color: #dbdcdf;
+}
+
+.bottom-gamenav-sign {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.bottom-gamenav-sign span:nth-child(1) {
+  margin-right: 5px;
+}
+
+.bottom-gamenav-sign i {
+  display: inline-block;
+  margin: 0 5px;
+  background-image: url(../images/index/topnav_spriter.png);
+  background-repeat: no-repeat;
+  vertical-align: baseline;
+}
+
+/* 底部游戏菜单  end */
+/* 底部 服务栏  start */
+.bottom {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #f6f7fb;
+}
+
+.bottom .container:before, .bottom .container:after {
+  content: "";
+  display: table;
+}
+
+.bottom .container:after {
+  clear: both;
+}
+
+.bottom .container {
+  *zoom: 1;
+}
+
+.bottom h3 {
+  text-indent: 30px;
+  font-size: 16px;
+  line-height: 16px;
+  margin-bottom: 20px;
+  color: #888;
+  font-weight: normal;
+  background-image: url(../images/index/bottom_corner.png);
+  background-repeat: no-repeat;
+  background-position: center left;
+}
+
+.bottom ul:before, .bottom ul:after {
+  content: "";
+  display: table;
+}
+
+.bottom ul:after {
+  clear: both;
+}
+
+.bottom ul {
+  *zoom: 1;
+}
+
+.bottom li {
+  float: left;
+  width: 150px;
+  margin-right: 2px;
+  margin-bottom: 2px;
+}
+
+.bottom h4 {
+  color: #222222;
+  line-height: 30px;
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.bottom p {
+  color: #808080;
+  line-height: 30px;
+}
+
+.bottom-helper,
+.bottom-recharge,
+.bottom-safety,
+.bottom-synthesize {
+  float: left;
+}
+
+.bottom-helper a,
+.bottom-recharge a,
+.bottom-safety a,
+.bottom-synthesize a {
+  display: block;
+  background-color: #e3e3e3;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  -webkit-transition: all .3s ease-in;
+  transition: all .3s ease-in;
+}
+
+.bottom-helper a:hover,
+.bottom-recharge a:hover,
+.bottom-safety a:hover,
+.bottom-synthesize a:hover {
+  background-color: #cf1132;
+}
+
+.bottom-helper a:hover h4,
+.bottom-helper a:hover p,
+.bottom-recharge a:hover h4,
+.bottom-recharge a:hover p,
+.bottom-safety a:hover h4,
+.bottom-safety a:hover p,
+.bottom-synthesize a:hover h4,
+.bottom-synthesize a:hover p {
+  color: white;
+}
+
+.bottom-helper,
+.bottom-recharge,
+.bottom-safety {
+  margin-right: 14px;
+}
+
+.bottom-helper,
+.bottom-safety {
+  width: 152px;
+}
+
+.bottom-recharge {
+  width: 304px;
+}
+
+.bottom-synthesize {
+  width: 608px;
+}
+
+.bottom-serve {
+  margin-top: 30px;
+  color: #d9dde1;
+  font-size: 12px;
+  height: 24px;
+  line-height: 24px;
+}
+
+.bottom-serve span {
+  font-size: 14px;
+  color: #454240;
+}
+
+.bottom-serve a {
+  color: #888888;
+}
+
+.bottom-serve .bottom-serve-phone {
+  margin-left: 430px;
+}
+
+.bottom-serve a:last-child {
+  color: #454240;
+  font-size: 18px;
+}
+
+/* 底部 服务栏  end */
+/* footer部分  start */
+footer {
+  padding: 20px 0;
+  background: #272a2c;
+  color: white;
+}
+
+footer .inner {
+  width: 1024px;
+  margin: 0 auto;
+}
+
+footer .inner > p:nth-child(2) {
+  margin-top: 10px;
+}
+
+footer .inner p {
+  line-height: 24px;
+}
+
+footer .inner a {
+  color: white;
+}
+
+footer .inner a:hover {
+  text-decoration: underline;
+}
+
+.footer-top {
+  margin-top: 15px;
+}
+
+.footer-top:before, .footer-top:after {
+  content: "";
+  display: table;
+}
+
+.footer-top:after {
+  clear: both;
+}
+
+.footer-top {
+  *zoom: 1;
+}
+
+.footer-top-left {
+  float: left;
+  height: 48px;
+  min-width: 300px;
+  padding-top: 5px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.footer-top-right {
+  float: left;
+  font-size: 12px;
+}
+
+/* footer部分  end */
 /*# sourceMappingURL=index.css.map */

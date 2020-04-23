@@ -1,6 +1,3 @@
-body {
-    height: 10000px;
-}
 
 @mixin clearfix {
     &:before,
@@ -154,6 +151,7 @@ body {
     float: left;
     >div:nth-child(1) {
         background-color: #35373a;
+        color: #dd1136;
     }
     h3 {
         border-left: 4px #dd1136 solid;
@@ -162,7 +160,6 @@ body {
         text-indent: 36px;
         font-size: 16px;
         font-weight: 700;
-        color: #dd1136;
     }
 }
 
@@ -560,6 +557,8 @@ header {
 .banner {
     padding-top: 40px;
     padding-bottom: 40px;
+    // 这里给个高度，可以改善闪屏情况
+    height: 130px;
     background-color: #f6f7fb;
     ul {
         width: 100%;
@@ -602,6 +601,7 @@ header {
 main {
     background-color: #f6f7fb;
     @include clearfix();
+    height: 810px;
 }
 .main-hot {
     float: left;
@@ -728,5 +728,331 @@ main {
     }
 }
 
-
+// 新游测试
+.main-new {
+   float: left;
+   width: 300px;
+   h2 {
+    font-size: 22px;
+    color: #272a2c;
+    border-left: 4px #cf1132 solid;
+    line-height: 22px;
+    text-indent: 15px;
+    margin-bottom: 30px;
+    font-weight: normal;
+   }
+   ul {
+       border: 1px solid #ededed;
+   }
+   li {
+       border-top: 1px solid #ededed;
+       background-color: white;
+       transition: all ease .3s;
+       &:hover {
+        background-color: #f0f2f7;
+        .main-new-arrow {
+            background-image: url(../images/index/main_new_arrow_red.png);
+        }
+       }
+   }
+   a {
+       position: relative;
+       display: block;
+       height: 88px;
+       padding: 20px 42px 0px 26px;
+   }
+   img {
+       float: left;
+       width: 68px;
+       height: 68px;
+       margin-right: 22px;
+   }
+   p {
+       float: left;
+       width: 140px;
+   }
+   b,
+   s,
+   span {
+       display: block;
+   }
+   b {
+    font-size: 16px;
+    color: #555;
+    line-height: 22px;
+    height: 22px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-style: normal;
+   }
+   s,
+   span {
+    color: #999;
+    line-height: 24px;
+    height: 24px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+   }
+   s {
+       font-size: 14px;
+   }
+   span {
+       font-size: 12px;
+       i {
+            display: inline-block;
+            width: 13px;
+            height: 13px;
+            background-image: url(../images/index/tools_spriter.png);
+            background-repeat: no-repeat;
+            background-position: -37px -20px;
+            vertical-align: middle;
+            margin-right: 7px;
+       }
+   }
+}
+.main-new-arrow {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    margin-top: -14px;
+    width: 15px;
+    height: 28px;
+    background-image: url(../images/index/main_new_arrow.png);
+    background-repeat: no-repeat;
+    transition: all ease .3s;
+}
 /* main主体部分  end */
+
+
+/* 底部游戏菜单  start */
+.bottom-gamenav {
+    padding-bottom: 40px;
+}
+
+.bottom-gamenav .gamenav {
+    position: static;
+    display: block;
+    background-color: #fff;
+    @include clearfix();
+    border-left: 1px solid #eee;
+    border-right: 1px solid #eee;
+    padding-bottom: 0;
+    // 先只显示一半
+    height: 460px;
+    overflow: hidden;
+}
+
+.bottom-gamenav .gamenav a {
+    color: #666666;
+    &:hover {
+        font-weight: 700;
+        color: #666666;
+    }
+}
+
+.bottom-gamenav .gamenav-client > div:nth-child(1), 
+.bottom-gamenav .gamenav-mobile > div:nth-child(1) {
+    background-color: #fbfbfb;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    color: #222222;
+    border-color: #eee;
+}
+
+.bottom-gamenav .gamenav-client-relax, 
+.bottom-gamenav .gamenav-client-role, 
+.bottom-gamenav .gamenav-mobile-hot, 
+.bottom-gamenav .gamenav-mobile-new {
+    border-color:#eee;
+    box-sizing: border-box;
+    padding-top: 20px;
+}
+
+.gamenav-client-relax h4, 
+.gamenav-client-role h4, 
+.gamenav-mobile-hot h4, 
+.gamenav-mobile-new h4 {
+    color: #c21d35;
+}
+
+// 查看更多的按钮
+.bottom-gamenav-viewmore {
+    display: block;
+    background-color: #f1f1f1;
+    width: 120px;
+    height: 38px;
+    text-align: center;
+    line-height: 38px;
+    margin: 40px auto 0;
+    font-size: 14px;
+    color: #6d6d6d;
+    &:hover {
+        background-color: #dbdcdf;
+    }
+}
+
+.bottom-gamenav-sign {
+    margin-top: 20px;
+    text-align: center;
+    span:nth-child(1) {
+        margin-right: 5px;
+    }
+    i {
+        display: inline-block;
+        margin: 0 5px;
+        background-image: url(../images/index/topnav_spriter.png);
+        background-repeat: no-repeat;
+        vertical-align: baseline;
+    }
+}
+/* 底部游戏菜单  end */
+
+
+/* 底部 服务栏  start */
+.bottom {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: #f6f7fb;
+    .container {
+        @include clearfix();
+    }
+    h3 {
+        text-indent: 30px;
+        font-size: 16px;
+        line-height: 16px;
+        margin-bottom: 20px;
+        color: #888;
+        font-weight: normal;
+        background-image: url(../images/index/bottom_corner.png);
+        background-repeat: no-repeat;
+        background-position: center left;
+    }
+    ul {
+        @include clearfix();
+    }
+    li {
+        float: left;
+        width: 150px;
+        margin-right: 2px;
+        margin-bottom: 2px;
+    }
+    
+    h4 {
+        color: #222222;
+        line-height: 30px;
+        font-size: 16px;
+        font-weight: normal;
+    }
+    p {
+        color: #808080;
+        line-height: 30px;
+    }
+}
+
+.bottom-helper,
+.bottom-recharge,
+.bottom-safety,
+.bottom-synthesize {
+    float: left;
+    a {
+        display: block;
+        background-color: #e3e3e3;
+        text-align: center;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        transition: all .3s ease-in;
+        &:hover {
+            background-color: #cf1132;
+            h4,
+            p {
+                color: white;
+            }
+
+        }
+    }
+}
+
+.bottom-helper,
+.bottom-recharge,
+.bottom-safety {
+    margin-right: 14px;
+}
+
+.bottom-helper,
+.bottom-safety {
+    width: 152px;
+}
+.bottom-recharge {
+    width: 304px;
+}
+
+.bottom-synthesize {
+    width: 608px;
+}
+
+.bottom-serve {
+    margin-top: 30px;
+    color: #d9dde1;
+    font-size: 12px;
+    height: 24px;
+    line-height: 24px;
+    span {
+        font-size: 14px;
+        color: #454240;
+    }
+    a {
+        color: #888888;
+    }
+    .bottom-serve-phone {
+        margin-left: 430px;
+    }
+    a:last-child {
+        color: #454240;
+        font-size: 18px;
+    }
+}
+/* 底部 服务栏  end */
+
+
+/* footer部分  start */
+footer {
+    padding: 20px 0;
+    background: #272a2c;
+    color: white;
+    .inner {
+        width: 1024px;
+        margin: 0 auto;
+        > p:nth-child(2) {
+            margin-top: 10px;
+        }
+        p {
+            line-height: 24px;
+        }
+        a {
+            color: white;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+.footer-top {
+    margin-top: 15px;
+    @include clearfix();
+}
+
+.footer-top-left {
+    float: left;
+    height: 48px;
+    min-width: 300px;
+    padding-top: 5px;
+    box-sizing: border-box;
+}
+.footer-top-right {
+    float: left;
+    font-size: 12px;
+}
+/* footer部分  end */
