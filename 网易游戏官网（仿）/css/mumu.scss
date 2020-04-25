@@ -1,0 +1,308 @@
+@mixin clearfix {
+    &:before,
+    &:after {
+        content: "";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+    & {
+        *zoom: 1;
+    }
+}
+
+/* 顶部导航  start */
+nav {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding-top: 26px;
+    height: 38px;
+    min-width: 1280px;
+    z-index: 1;
+}
+
+.nav-logo {
+    float: left;
+    margin-left: 30px;
+    a {
+        display: block;
+    }
+}
+
+.nav-right {
+    float: right;
+    margin-right: 30px;    
+}
+
+.nav-right-nav {
+    @include clearfix();
+    >li {
+        position: relative;
+        float: left;
+        >a {
+            display: block;
+            line-height: 38px;
+            height: 38px;
+            box-sizing: border-box;
+            padding: 0 20px;
+            margin: 0 10px;
+            border: 1px solid transparent;
+            color: #ffffff;
+            font-size: 16px;
+            border-radius: 0px;
+            transition: background-color ease .3s, border-color ease .3s, border-radius ease .3s;
+            &:hover,
+            &.current {
+                border-radius: 4px;
+                background-color: rgba(255,255,255,.1);
+                border-color: #ffffff;
+            }
+        }
+    }
+}
+
+.nav-right-followus {
+    position: absolute;
+    display: none;
+    top: 34px;
+    left: -700px;
+    width: 821px;
+    height: 216px;
+    background-image: url(../images/mumu/nav_followus_bg.png);
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    text-align: center;
+    ul {
+        display: flex;
+        padding-top: 38px;
+        
+    }
+    li {
+        flex: 1;
+        margin: 0 16px;
+        color: #ffffff;
+        font-size: 14px;
+    }
+    a {
+        display: block;
+        color: #ffffff;
+        text-decoration: underline;
+    }
+    img {
+        width: 94px;
+        height: 94px;
+    }
+    p:nth-child(2) {
+        margin-top: 14px;
+    }
+    p:nth-child(3) {
+        margin-top: 12px;
+    }
+}
+/* 顶部导航  end */
+
+header {
+    width: 100%;
+    height: 780px;
+    background-image: url(../images/mumu/top_bg.webp);
+    background-repeat: no-repeat;
+    background-position: center top;
+}
+
+.header-kv {
+    height: 100%;
+    ul {
+        position: relative;
+        height: 100%;
+    }
+    li {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        // 每组 kv图  都是这样，所以写到这里
+        background-repeat: no-repeat;
+        background-position: center top;
+        transition: ease 1s all;
+        opacity: 0;
+    }
+    // 每组 kv图  的文字部分都一样
+    .header-kv-words {
+        position: absolute;
+        left: 50%;
+        top: 126px;
+        margin-left: -590px;
+        background-repeat: no-repeat;
+        width: 545px;
+        height: 215px;
+    }
+}
+
+// 第一组 kv图
+.header-kv-part1 {
+    background-image: url(../images/mumu/header_kv_part01.webp);
+    &>div:nth-child(-n+3) {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background-image: url(../images/mumu/header_kv_part01_layer.png);
+        background-repeat: no-repeat;
+        background-position: center top;
+        opacity: 0; 
+        transform: matrix(1, 0, 0, 1, 0, -1000);
+    }
+    &.current {
+        opacity: 1;
+        >div:nth-child(-n+3) {
+            opacity: 1;
+            transform: matrix(1, 0, 0, 1, 0, 0)
+        }
+    }
+    .header-kv-words {
+        background-image: url(../images/mumu/header_kv_part01_words.png);
+    }
+}
+
+.header-kv-part1-layer1 {
+    left: 86px;
+    top: -84px;
+    transition: ease .8s all;
+}
+.header-kv-part1-layer2 {
+    left: 42px;
+    top: -53px;
+    transition: ease .8s all 0.2s;
+}
+.header-kv-part1-layer3 {
+    left: 0px;
+    top: 0px;
+    transition: ease .8s all 0.4s;
+}
+
+// 第二组 kv图
+.header-kv-part2 {
+    background-image: url(../images/mumu/header_kv_part02.webp);
+    &>div:nth-child(-n+3) {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        left: 0;
+        background-image: url(../images/mumu/header_kv_part02_layer.png);
+        background-repeat: no-repeat;
+        background-position: center top;
+        opacity: 0;
+    }
+     &.current {
+        opacity: 1;
+        >div:nth-child(-n+3) {
+            transform: matrix(1, 0, 0, 1, 0, 0)
+        }
+        .header-kv-part2-layer1 {
+            opacity: 1;
+        }
+        .header-kv-part2-layer2 {
+            opacity: .6;
+        }
+        .header-kv-part2-layer3 {
+            opacity: .3;
+        }
+    }
+    // 文字部分
+    .header-kv-words {
+        background-image: url(../images/mumu/header_kv_part02_words.png);
+    }
+}
+
+.header-kv-part2-layer1 {
+    top: 0;
+    transform: matrix(1, 0, 0, 1, 0, 46);
+    // 这次的三个transition时长，延迟  和上一part的不一样， 这次的transition 开启和时长一致了，才是效果最好的
+    transition: ease 2s all;
+}
+.header-kv-part2-layer2 {
+    top: 23px;
+    transform: matrix(1, 0, 0, 1, 0, 23);
+    transition: ease 2s all;
+}
+.header-kv-part2-layer3 {
+    top: 46px;
+    transform: matrix(1, 0, 0, 1, 0, 0);
+    transition: ease 2s all;
+}
+
+// 第三组 kv图
+.header-kv-part3 {
+    background-image: url(../images/mumu/header_kv_part03.webp);
+    &>div:nth-child(-n+4) {
+        position: absolute;
+        width: 619px;
+        height: 390px;    
+        left: 50%;
+        background-image: url(../images/mumu/header_kv_part03_layer_lightning.png);
+        background-repeat: no-repeat;
+        background-position: center top;
+        opacity: 0;
+        transform: matrix(0,0,0,0,0,0);
+    }
+    div:nth-child(5),
+    div:nth-child(6) {
+        background-image: url(../images/mumu/header_kv_part03_layer_circle.png);
+        background-repeat: no-repeat;
+        background-position: center top;
+        height: 100%;
+        width: 100%;
+        left: 0;
+        top: 0;
+        opacity: 1;
+    }
+    div:nth-child(6) {
+        top: 32px;
+    }
+     &.current {
+        opacity: 1;
+        >div:nth-child(-n+4) {
+            opacity: 1;
+            transform: matrix(1,0,0,1,0,0);
+        }
+        .header-kv-part3-layer-circle1 {
+            transform: matrix(1,0,0,1,0,0);
+        }
+        .header-kv-part3-layer-circle2 {
+            transform: matrix(1,0,0,1,0,0);
+        }
+    }
+    // 文字部分
+    .header-kv-words {
+        background-image: url(../images/mumu/header_kv_part03_words.png);
+    }
+}
+
+.header-kv-part3-layer-lightning1 {
+    margin-left: -1070px;
+    top: 266px;
+}
+.header-kv-part3-layer-lightning2 {
+    margin-left: -520px;
+    top: -25px;
+}
+.header-kv-part3-layer-lightning3 {
+    margin-left: 490px;
+    top: -80px;
+}
+.header-kv-part3-layer-lightning4 {
+    margin-left: 440px;
+    top: 543px;
+}
+
+.header-kv-part3-layer-circle1 {
+    transform: matrix(1,0,0,1,0,32);
+}
+
+.header-kv-part3-layer-circle2 {
+    transform: matrix(1,0,0,1,0,0);
+}
