@@ -672,6 +672,35 @@ header {
 
 /* 头部 end */
 /* banner栏  start */
+@-webkit-keyframes flash {
+  0% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+  }
+  50% {
+    opacity: 0.8;
+    filter: alpha(opacity=80);
+  }
+  100% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+  }
+}
+@keyframes flash {
+  0% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+  }
+  50% {
+    opacity: 0.8;
+    filter: alpha(opacity=80);
+  }
+  100% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+  }
+}
+
 .banner {
   padding-top: 40px;
   padding-bottom: 40px;
@@ -699,6 +728,11 @@ header {
 .banner li {
   position: relative;
   float: left;
+}
+
+.banner li:hover img {
+  -webkit-animation: flash .5s ease-in-out both;
+          animation: flash .5s ease-in-out both;
 }
 
 .banner li:hover span {

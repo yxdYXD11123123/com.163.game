@@ -110,13 +110,106 @@
                     <!-- 内容块 -->
                     <div class="header-kv-words"></div>
                 </li>
+                <!-- 第四组kv -->
+                <li class="header-kv-part4">
+                    <div class="header-kv-part4-layer1"></div>
+                    <div class="header-kv-part4-layer2"></div>
+                    <div class="header-kv-part4-layer3"></div>
+                    <!-- 内容块 -->
+                    <div class="header-kv-words"></div>
+                </li>
             </ul>
         </div>
         <!-- 时间线 -->
         <div class="header-timeline"></div>
+        <!-- 下载 -->
+        <div class="header-upload">
+            <a href="#" class="header-upload-window">
+                <i>
+                    <span></span>
+                    <span></span>
+                </i>
+                <p>升级安卓6.0</p>
+            </a>
+            <a href="#" class="header-upload-mac">
+                <i>
+                    <span></span>
+                    <span></span>
+                </i>
+                <p>稳定支持</p>
+            </a>
+            <a href="#">[ 更新日志 ]</a>
+            <a href="#">[ 安装指南 ]</a>
+            <a href="#" class="header-upload-player">
+                <span></span>
+                <p>视频介绍</p>
+            </a>
+        </div>
+        <!-- 波浪动画 -->
+        <div class="wave">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="180px">
+                <path id="wave1" d="" />
+                <path id="wave2" d="" />
+                <path id="wave3" d="" />
+            </svg>
+        </div>
     </header>
 
+    <!-- kv图  下的  tab切换 -->
+    <div class="tab">
+        <ol class="tab-circle">
+            <li>
+                <!-- 利用  index 分层 圆环 以及 遮挡块， 做出转圈的小圆圈 -->
+                <div class="tab-circle-core"></div>
+                <div class="tab-circle-left"></div>
+                <div class="tab-circle-right"></div>
+                <div class="tab-circle-mask"></div>
+                <span></span>
+            </li>
+            <li>
+                <div class="tab-circle-core"></div>
+                <div class="tab-circle-left"></div>
+                <div class="tab-circle-right"></div>
+                <div class="tab-circle-mask"></div>
+                <span></span>
+            </li>
+            <li>
+                <div class="tab-circle-core"></div>
+                <div class="tab-circle-left"></div>
+                <div class="tab-circle-right"></div>
+                <div class="tab-circle-mask"></div>
+                <span></span>
+            </li>
+            <li>
+                <div class="tab-circle-core"></div>
+                <div class="tab-circle-left"></div>
+                <div class="tab-circle-right"></div>
+                <div class="tab-circle-mask"></div>
+                <span></span>
+            </li>
+        </ol>
+        <ul class="tab-content">
+            <li></li>
+        </ul>
+    </div>
+    <!-- 弹窗：视频 -->
+    <div class="mask"></div>
+    <div class="show-video">
+        <i class="show-video-closebtn"></i>
+        <!--  disablepictureinpicture='true' 作用是取消三个点 -->
+        <video controls="controls" controlslist="nodownload" src="./video/mumu/mumu_upload.mp4" width="800" height="450"
+            disablepictureinpicture='true'>
+            <source src="./video/mumu/mumu_upload.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <!-- 插件 -->
     <script src="./lib/jquery/jquery-3.4.1.js"></script>
+    <script src="./lib/jquery/jquery.transform.js"></script>
+    <!-- 波浪效果 插件 -->
+    <script src="./lib/TweenMax/TweenMax.min.js"></script>
+    <script src="./lib/jquery/wavify.js"></script>
+    <script src="./lib/jquery/jquery.wavify.js"></script>
     <!-- js代码 -->
     <script src="./js/mumu.js"></script>
 </body>

@@ -554,6 +554,20 @@ header {
 
 
 /* banner栏  start */
+@keyframes flash{
+    0%{
+        opacity: 1;
+        filter:alpha(opacity=100);
+    }
+    50% {
+        opacity: 0.8;
+        filter:alpha(opacity=80);
+    }
+    100% {
+        opacity: 1;
+        filter:alpha(opacity=100);
+    }
+}
 .banner {
     padding-top: 40px;
     padding-bottom: 40px;
@@ -568,6 +582,9 @@ header {
         position: relative;
         float: left;
         &:hover {
+            img {
+                animation: flash .5s ease-in-out both;
+            }
             span {
                 width: 41px;
             }
@@ -593,6 +610,7 @@ header {
     }
 }
 /* banner栏  end */
+
 
 
 /* main主体部分  start */

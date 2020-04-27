@@ -105,11 +105,13 @@ nav {
 /* 顶部导航  end */
 
 header {
+    position: relative;
     width: 100%;
     height: 780px;
     background-image: url(../images/mumu/top_bg.webp);
     background-repeat: no-repeat;
     background-position: center top;
+    overflow: hidden;
 }
 
 .header-kv {
@@ -238,7 +240,8 @@ header {
 // 第三组 kv图
 .header-kv-part3 {
     background-image: url(../images/mumu/header_kv_part03.webp);
-    &>div:nth-child(-n+4) {
+    // 四个 闪电
+    div:nth-child(-n+4) {
         position: absolute;
         width: 619px;
         height: 390px;    
@@ -247,10 +250,13 @@ header {
         background-repeat: no-repeat;
         background-position: center top;
         opacity: 0;
-        transform: matrix(0,0,0,0,0,0);
+        transform: translate3d(0px,0px,0px) scale(0, 0);
+        transition: ease 2s all;
     }
+    // 两层 圆环
     div:nth-child(5),
     div:nth-child(6) {
+        position: absolute;
         background-image: url(../images/mumu/header_kv_part03_layer_circle.png);
         background-repeat: no-repeat;
         background-position: center top;
@@ -258,21 +264,28 @@ header {
         width: 100%;
         left: 0;
         top: 0;
-        opacity: 1;
+        opacity: 0;
+        transition: ease 2s all;
+    }
+    div:nth-child(5) {
+        transform: matrix(1,0,0,1,0,32);
     }
     div:nth-child(6) {
         top: 32px;
+        transform: matrix(1,0,0,1,0,0);
     }
      &.current {
         opacity: 1;
         >div:nth-child(-n+4) {
             opacity: 1;
-            transform: matrix(1,0,0,1,0,0);
+            transform: translate3d(0px,0px,0px) scale(1, 1);
         }
         .header-kv-part3-layer-circle1 {
+            opacity: 1;
             transform: matrix(1,0,0,1,0,0);
         }
         .header-kv-part3-layer-circle2 {
+            opacity: 0.5;
             transform: matrix(1,0,0,1,0,0);
         }
     }
@@ -305,4 +318,340 @@ header {
 
 .header-kv-part3-layer-circle2 {
     transform: matrix(1,0,0,1,0,0);
+}
+
+// 第四组 kv图
+.header-kv-part4 {
+    background-image: url(../images/mumu/header_kv_part04.webp);
+    &>div:nth-child(-n+3) {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        left: 0;
+        background-image: url(../images/mumu/header_kv_part04_layer.png);
+        background-repeat: no-repeat;
+        background-position: center top;
+        opacity: 0;
+        transition: ease 2s all;
+    }
+     &.current {
+        opacity: 1;
+        >div:nth-child(-n+3) {
+            transform: matrix(1, 0, 0, 1, 0, 0)
+        }
+        .header-kv-part4-layer1 {
+            opacity: 1;
+        }
+        .header-kv-part4-layer2 {
+            opacity: .6;
+        }
+        .header-kv-part4-layer3 {
+            opacity: .3;
+        }
+    }
+    // 文字部分
+    .header-kv-words {
+        background-image: url(../images/mumu/header_kv_part04_words.png);
+    }
+}
+
+.header-kv-part4-layer1 {
+    top: 0;
+    transform: matrix(1, 0, 0, 1, 0, 46);
+}
+.header-kv-part4-layer2 {
+    top: 23px;
+    transform: matrix(1, 0, 0, 1, 0, 23);
+}
+.header-kv-part4-layer3 {
+    top: 46px;
+    transform: matrix(1, 0, 0, 1, 0, 0);
+}
+
+// 头部  时间线
+.header-timeline {
+    position: absolute;
+    top: 297px;
+    left: 50%;
+    margin-left: -590px;
+    height: 1px;
+    width: 0px;
+    background-color: white;
+    // 原官网 对时间线的变化节奏 采用了 ease 的节奏， 所以最好还是不用jquery的animate, 继续用C3的transition等实现动画
+    transition: width 1s ease;
+}
+
+// 头部  下载
+.header-upload {
+    position: absolute;
+    left: 50%;
+    top: 398px;
+    margin-left: -590px;
+    text-align: center;
+    a:nth-child(3),
+    a:nth-child(4) {
+        color: white;
+        font-size: 16px;
+        margin: 0 5px;
+        line-height: 34px;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.header-upload-window,
+.header-upload-mac {
+    position: relative;
+    display: block;
+    width: 300px;
+    height: 68px;
+    background-image: url(../images/mumu/spriter01.png);
+    background-repeat: no-repeat;
+    overflow: hidden;
+    &:hover {
+        i {
+            top: -68px;
+        }
+    }
+    i {
+        position: absolute;
+        display: block;
+        top: 0;
+        left: 47px;
+        transition: top ease-in-out .2s;
+    }
+    span {
+        display: block;
+        width: 68px;
+        height: 68px;
+        top: 0;
+        left: 0;
+        background-image: url(../images/mumu/spriter01.png);
+        background-repeat: no-repeat;
+    }
+    p {
+        position: absolute;
+        width: 100%;
+        font-size: 13px;
+        color: #5e9cf8;
+        left: 50%;
+        top: 50%;
+        transform: translate(-40%,45%);
+        text-align: center;
+        line-height: 21px;
+    }
+}
+
+.header-upload-window {
+    background-position: 0px -156px;
+    margin-bottom: 13px;
+    span {
+        background-position: -156px 0;
+    }
+}
+
+.header-upload-mac {
+    background-position: -224px 0px;
+    span {
+        background-position: -224px -68px;
+    }
+}
+
+// 播放视频按钮
+.header-upload-player {
+    position: absolute;
+    right: -100px;
+    top: 81px;
+    display: block;
+    span {
+        display: block;
+        width: 68px;
+        height: 68px;
+        background-image: url(../images/mumu/spriter01.png);
+        background-repeat: no-repeat;
+        background-position: -78px -78px;
+        transition: opacity .4s ease;
+    }
+    p {
+        color:white;
+        font-size: 14px;
+        line-height: 34px;
+    }
+    &:hover {
+        span {
+            opacity: 0.5;
+        }
+    }
+}
+
+// 波浪
+.wave {
+    position: absolute;
+    width: 100%;
+    height: 180px;
+    bottom: -20px;
+    left: 0px;
+}
+
+// 弹窗
+.mask {
+    position: absolute;
+    display: none;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+    background-color: rgba(0,0,0,.8);
+    opacity: 0.8;
+}
+
+// 下载介绍视频
+.show-video {
+    position: absolute;
+    display: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    i {
+        position: absolute;
+        display: block;
+        width: 54px;
+        height: 54px;
+        top: 0px;
+        right: -64px;
+        cursor: pointer;
+        transition: all .5s ease 0s;
+        background-image: url(../images/mumu/close_btn.png);
+        background-repeat: no-repeat;
+        background-position: 0px 0px;
+        &:hover {
+            transform: rotate(180deg);
+        }
+    }
+}
+
+/*
+   kv图的  tab 切换
+*/
+
+// 左环往出旋转的的动画
+@keyframes circleLeft{
+    0% {
+        transform: rotateZ(45deg);
+    }
+    100% {
+        transform: rotateZ(225deg);
+    }
+}
+@keyframes circleRight{
+    0% {
+        opacity: 0;
+        transform: rotateZ(45deg);
+    }
+    1% {
+        opacity: 1;
+        transform: rotateZ(45deg);
+    }
+    100% {
+        transform: rotateZ(225deg);
+        opacity: 1;
+    }
+}
+@keyframes circleSpan {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+.tab-circle {
+    padding-top: 5px;
+    padding-bottom: 10px;
+    text-align: center;
+    li {
+        position: relative;
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        margin: 0 8px;
+        overflow: hidden;
+    }
+    .current {
+        .tab-circle-left {
+            border-left-color: #59cbff;
+            border-bottom-color: #59cbff;
+            animation: circleLeft 2.5s linear forwards;
+        }
+        span {
+            animation: circleSpan .1s linear forwards 1s;
+        }
+        .tab-circle-right {
+            border-right-color: #59cbff;
+            border-top-color: #59cbff;
+            animation: circleRight 2.4s linear forwards 2.5s;
+        }
+        .tab-circle-core {
+            display: none;
+        }
+    }
+    // 这个span用来弥补  刚开始可能会在底部露出的一点红色左边环 
+    span {
+        position: absolute;
+        bottom: 0;
+        left: 2px;
+        display: block;
+        width: 10px;
+        height: 10px;
+        background-color: white;
+        z-index: 3;
+    }
+}
+
+.tab-circle-core {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background-color: #d2d4d5;
+    z-index: 4;
+}
+
+.tab-circle-left,
+.tab-circle-right {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 12px;
+    height: 12px;
+    border: 4px solid transparent;
+    border-radius: 50%;
+}
+
+.tab-circle-left {
+    transform: rotateZ(45deg);
+    z-index: 1;
+}
+
+.tab-circle-right {
+    transform: rotateZ(45deg);
+    opacity: 0;
+    z-index: 3;
+}
+
+.tab-circle-mask {
+    position: absolute;
+    height: 22px;
+    // 这里 需要 退后一点点，不然当两边圆环都形成的最后一刻，可能会有一条缝隙
+    width: 9px;
+    left: 0px;
+    top: -1px;
+    background-color: white;
+    z-index: 2;
 }
