@@ -1,0 +1,707 @@
+body {
+    background-color: #f4f4f4;
+}
+
+@mixin clearfix {
+    &:before,
+    &:after {
+        content: "";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+    & {
+        *zoom: 1;
+    }
+}
+
+.container {
+    width: 1500px;
+    margin: 0 auto;
+}
+
+/* 顶部导航  start */
+nav {
+    background-color: #222;
+    @include clearfix();
+    ul {
+        float: left;
+        @include clearfix();
+    }
+    li {
+        float: left;
+        a {
+            display: block;
+            line-height: 90px;
+            height: 90px;
+        }
+    }
+    .container>span {
+        float: left;
+        height: 90px;
+        width: 1px;
+        box-sizing: border-box;
+        background-color: #666666;
+        border-top: 35px solid #222;
+        border-bottom: 35px solid #222;
+    }
+}
+.nav-logo {
+    float: left;
+    margin-top: 16px;
+}
+.nav-left {
+    width: 380px;
+    margin-left: 120px;
+    li {
+        margin-right: 70px;
+    }
+    a {
+        position: relative;
+        font-size: 20px;
+        color: #fff;
+        &:hover {
+            color: #FFDC00;
+            font-weight: 700;
+            transition: color 1s ease;
+            span {
+                opacity: 1;
+                transition: opacity 1s ease;
+            }
+        }
+    }
+    span {
+        position: absolute;
+        opacity: 0;
+        width: 100%;
+        height: 6px;
+        bottom: 0;
+        left: 0;
+        background-color: #FFDC00;
+        
+    }
+}
+
+.nav-right {
+    li {
+        margin-left: 44px;
+    }
+    a {
+        position: relative;
+        font-size: 18px;
+        color: rgba(255,255,255,.7);
+        &:hover {
+            color: #fff;
+            font-weight: 700;
+            i {
+                transform: rotateY(360deg);
+                transition: transform .8s linear;
+            }
+        }
+    }
+    i {
+        background-image: url(../images/play/nav_spriter.png);
+        background-repeat: no-repeat;
+        transition: transform 0s;
+    }
+    li:nth-child(1) i {
+        display: inline-block;
+        width: 21px;
+        height: 19px;
+        background-position: -42px 0;
+        margin-bottom: -1px;
+    }
+    li:nth-child(2) i {
+        display: inline-block;
+        width: 24px;
+        height: 19px;
+        background-position: -63px 0;
+        margin-bottom: -1px;
+    }
+    li:nth-child(3) i {
+        display: inline-block;
+        width: 32px;
+        height: 32px;
+        background-position: -88px 0;
+        margin-bottom: -9px;
+    }
+}
+/* 顶部导航  end */
+
+
+/* 轮播图  start */
+.carousel {
+    position: relative;
+    background-color: #000000;
+    ul {
+        width: 100%;
+        height: 400px;
+        li {
+            position: absolute;
+            width: 100%;
+            left: 0;
+            top: 0;
+            display: none;
+        }
+        li:nth-child(1) {
+            display: block;
+        }
+    }
+    a {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 400px;
+        overflow: hidden;
+        &:hover {
+            img {
+                transform: scale(1.2);
+            }
+        }
+    }
+    img {
+        position: absolute;
+        height: 100%;
+        transition: transform .3s linear;
+    }
+    p {
+        position: absolute;
+        left: 50%;
+        margin-left: -750px;
+        color: white;
+        bottom: 32px;
+        font-size: 44px;
+        font-weight: 700;
+        width: 1500px;
+        z-index: 1;
+    }
+    span {
+        position: absolute;
+        content: '';
+        background: url(../images/play/carousel_words_bg.png) repeat-x 0 bottom;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        left: 0;
+    }
+    ol {
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        li {
+            float: left;
+            width: 25px;
+            height: 6px;
+            margin-left: 6px;
+            background-color: white;
+            opacity: .5;
+            cursor: pointer;
+            transition: background-color .5s ease, opacity .5s ease;
+        }
+        .current {
+            opacity: 1;
+            background-color: #FFD222;
+        }
+    }
+}
+/* 轮播图  end */
+
+/* 爱玩测评  start */
+.evaluation,
+.fun,
+.videos,
+.newmedia {
+    margin-top: 40px;
+}
+
+.evaluation-title,
+.fun-title,
+.videos-title {
+    @include clearfix();
+    border-bottom: 1px solid #e4e4e4;
+    h3 {
+        float: left;
+        font-size: 36px;
+        color: #333333;
+        line-height: 1;
+        padding-bottom: 8px;
+        border-bottom: 6px solid #333333;
+    }
+    a {
+        position: relative;
+        float: right;
+        display: block;
+        height: 50px;
+        line-height: 50px;
+        padding-right: 20px;
+        color: #999;
+        font-size: 16px;
+        transition: color .2s ease;
+        &:after {
+            content: "";
+            position: absolute;
+            display: block;
+            top: 18px;
+            right: 0px;
+            width: 8px;
+            height: 14px;
+            background-image: url(../images/play/icon_spriter.png);
+            background-repeat: no-repeat;
+            background-position: -11px 0;
+        }
+        &:hover {
+            color: #F4B126;
+            &:after {
+                background-position: -1px 0;
+            }
+        }
+    }
+} 
+
+.evaluation-content {
+    margin-top: 30px;
+    @include clearfix();
+    li {
+        position: relative;
+        float: left;
+        width: 222px;
+        border-radius: 4px;
+        overflow: hidden;
+        background-color: white;
+        transition: all 1s;
+        &.current {
+            width: 562px;
+            box-shadow: 0 0 2px 0 rgba(0, 0, 0, .2);
+            .evaluation-content-left:after {
+                display: block;
+            }
+        }
+    }
+    li:nth-child(-n+4) {
+        margin-right: 12px;
+    }
+    a {
+        display: block;
+    }
+}
+
+.evaluation-content-left {
+    position: relative;
+    width: 222px;
+    height: 296px;
+    overflow: hidden;
+    img {
+        width: 100%;
+        height: 100%;
+        transition: transform .5s ease;
+    }
+    span {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        display: block;
+        width: 60px;
+        height: 48px;
+        font-size: 22px;
+        color: #333333;
+        padding-left: 22px;
+        padding-top: 6px;
+        font-family: impact;
+        font-weight: 700;
+        box-sizing: border-box;
+        background-image: url(../images/play/assessments_score_bg.png);
+        background-repeat: no-repeat;
+        z-index: 1;
+        &.black-bg {
+            color: #FFD222;
+            background-image: url(../images/play/assessments_score_bg2.png);
+        }
+    }
+    div {
+        position: absolute;
+        bottom: 15px;
+        left: 15px;
+        right: 15px;
+        z-index: 1;
+        color: white;
+        h4 {
+            font-size: 20px;
+            line-height: 30px;
+        }
+        p {
+            font-size: 16px;
+            line-height: 25px;
+        }
+        h4,
+        p {
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+    }
+    i {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url(../images/play/evaluation_words_bg.png);
+        background-repeat: repeat-x;
+        background-position: bottom left;
+        z-index: 1;
+    }
+    &:hover {
+        img {
+            transform: scale(1.2);
+        }
+    }
+    &:after {
+        content: "";
+        position: absolute;
+        z-index: 1;
+        display: none;
+        top: 128px;
+        right: 0;
+        width: 0;
+        height: 0;
+        border-top: 20px solid transparent;
+        border-right: 20px solid white;
+        border-left: 20px solid transparent;
+        border-bottom: 20px solid transparent;
+    }
+}
+
+.evaluation-content-right {
+    position: absolute;
+    left: 222px;
+    top: 0;
+    width: 330px;
+    height: 296px;
+    padding-right: 10px;
+    h4 {
+        text-align: center;
+        color: #333333;
+        font-size: 20px;
+        font-weight: 400;
+        padding-top: 30px;
+        padding-bottom: 15px;
+    }
+    div {
+        position: relative;
+        margin: 0 auto;
+        width: 230px;
+        span {
+            position: absolute;
+            display: block;
+            top: 6px;
+            left: -26px;
+            width: 16px;
+            height: 18px;
+            background-image: url(../images/play/icon_spriter02.png);
+            background-repeat: no-repeat;
+            background-position: -75px 0;
+        }
+        p {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+            overflow: hidden;
+            line-height: 28px;
+            font-size: 16px;
+            color: #666666;
+        }
+    }
+    div:nth-last-child(1) {
+        span {
+            background-position: -90px 0;
+            top: 8px;
+        }
+        p {
+            color: #999999;
+        }
+    }
+    i {
+        display: block;
+        width: 230px;
+        margin: 10px auto;
+        background-color: #e4e4e4;
+        height: 1px;
+    }
+}
+
+/* 爱玩测评  end */
+
+
+/* 游戏新鲜事  start */
+.fun-content,
+.videos-content {
+    margin-top: 30px;
+    display: flex;
+    li {
+        flex:1;
+    }
+    li:nth-child(-n+4) {
+        margin-right: 18px;
+    }
+    a {
+        display: block;
+        width: 100%;
+        background-color: white;
+        height: 330px;
+        border-radius: 4px;
+        overflow: hidden;
+        &:hover {
+            img {
+                transform: scale(1.2);
+            }
+        }
+    }
+    div {
+        width: 100%;
+        height: 200px;
+        overflow: hidden;
+    }
+    img {
+        width: 100%;
+        height: 100%;
+        transition: transform .5s;
+    }
+    h5,
+    p {
+        width: 255px;
+        margin: 0 auto;
+    }
+    h5 {
+        margin-top: 15px;
+        color: #000000;
+        font-size: 16px;
+        line-height: 25px;
+        height: 75px;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        overflow: hidden;
+    }
+    p {
+        color: #999999;
+        font-size: 16px;
+        line-height: 26px;
+    }
+}
+
+.fun-banner,
+.videos-banner {
+    margin-top: 35px;
+    display: flex;
+    a {
+        flex: 1;
+        height: 200px;
+        margin-left: 22px;
+        border-radius: 4px;
+        overflow: hidden;
+        &:hover {
+            img {
+                transform: scale(1.2);
+            }
+        }
+    }
+    a:nth-child(1) {
+        margin-left: 0;
+    }
+    img {
+        width: 100%;
+        height: 100%;
+        transition: transform .5s;
+    }
+}
+/* 游戏新鲜事  end */
+
+/* 爱玩视频  start */
+.videos-content {
+    a {
+        height: 280px;
+    }
+    h5 {
+        width: 330px;
+        -webkit-line-clamp: 2;
+        height: 50px;
+    }
+    div {
+        position: relative;
+    }
+    li:nth-child(4) {
+        margin-right: 0px;
+    }
+    span {
+        position: absolute;
+        display: block;
+        top: 50%;
+        left: 50%;
+        margin-left: -15px;
+        margin-top: -20px;
+        width: 30px;
+        height: 40px;
+        background-image: url(../images/play/videos_icon_play.png);
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+}
+.videos-banner a {
+    height: 150px;
+}
+/* 爱玩视频  end */
+
+/* 新媒体矩阵  start */
+.newmedia {
+    .container {
+        padding-bottom: 100px;
+    }
+}
+.newmedia-title {
+    @include clearfix();
+    border-bottom: 1px solid #e4e4e4;
+    h3 {
+        float: left;
+        font-size: 36px;
+        color: #333333;
+        line-height: 1;
+        padding-bottom: 8px;
+        border-bottom: 6px solid #333333;
+    }
+}
+.newmedia-content {
+    margin-top: 50px;
+    @include clearfix();
+    li {
+        position: relative;
+        float: left;
+        margin: 0 35px;
+        > a:nth-child(1) {
+            width: 100px;
+            display: block;
+            text-align: center;
+        }
+    }
+    img {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+    }
+    h5 {
+        margin-top: 15px;
+        font-size: 16px;
+        color: #666666;
+        font-weight: 400;
+        line-height: 24px;
+        height: 26px;
+    }
+}
+
+.newmedia-content-li {
+    &:hover {
+        h5 {
+            color: #F4B126;
+        }
+    }
+}
+
+.newmedia-content-platform {
+    position: absolute;
+    display: block;
+    // 为了减少动画抖动情况，增加padding
+    padding: 4px;
+    top: 18px;
+    left: 50%;
+    margin-left: -18px;
+    opacity: 0;
+    i {
+        position: relative;
+        display: block;
+        width: 28px;
+        height: 28px;
+        background-image: url(../images/play/icon_spriter03.png);
+        background-repeat: no-repeat;
+        z-index: 2;
+        &.dashen {
+            background-position: -106px 0;
+        }
+        &.xinlang {
+            background-position: -193px 0;
+        }
+        &.zhihu {
+            background-position: -164px 0;
+        }
+        &.weixin {
+            background-position: -135px 0;
+        }
+        &.steam {
+            background-position: -222px 0;
+        }
+    }
+    span {
+        position: absolute;
+        display: none;
+        left: 0px;
+        top: 5px;
+        background-color: #ffd222;
+        width: max-content;
+        padding: 4px 6px;
+        font-size: 12px;
+        z-index: 1;
+        border-radius: 12px;
+        opacity: 0;
+        color: #555555;
+    }
+}
+/* 新媒体矩阵  end */
+
+/* 侧边栏 返回顶部按钮 */
+aside {
+    position: fixed;
+    display: none;
+    bottom: 50px;
+    left: 50%;
+    margin-left: 757px;
+    a {
+        display: block;
+        width: 60px;
+        height: 60px;
+        background-image: url(../images/play/aside_spriter.png);
+        background-repeat: no-repeat;
+        background-position: 0 -122px;
+        &:hover {
+            background-position: -61px -122px;
+        }
+    }
+}
+
+/* footer部分  start */
+footer {
+    background-color: #222222;
+}
+.footer-about {
+    h3 {
+        color: #fff;
+        font-weight: normal;
+        font-size: 20px;
+        padding-top: 30px;
+        padding-bottom: 10px;
+    }
+    p {
+        color: #666666;
+        font-size: 16px;
+        line-height: 26px;
+    }
+}
+.footer-bottom {
+    text-align: center;
+    color: #666666;
+    line-height: 26px;
+    margin-top: 10px;
+    padding-bottom: 30px;
+    a {
+        color: white;
+    }
+}
+/* footer部分  end */

@@ -684,14 +684,19 @@ main {
         height: 32px;
     }
     p {
+        display: -webkit-box;
         margin: 0 16px;
         font: 14px "Microsoft YaHei";
         color: #b1b1b1;
         line-height: 22px;
         padding: 0 2px;
         height: 45px;
-        padding-bottom: 13px;
+        margin-bottom: 13px;
         border-bottom: 1px solid #ededed;
+        text-overflow: ellipsis;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
     }
 }
 .main-hot-upload {

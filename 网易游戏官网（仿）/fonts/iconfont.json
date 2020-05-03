@@ -1,0 +1,44 @@
+{
+  "id": "1793602",
+  "name": "com.163.mumu",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "168112",
+      "name": "QQ空间",
+      "font_class": "qqkongjian",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "1592390",
+      "name": "新浪微博",
+      "font_class": "xinlangweibo",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "6819076",
+      "name": "微信",
+      "font_class": "weixin",
+      "unicode": "e607",
+      "unicode_decimal": 58887
+    },
+    {
+      "icon_id": "7321473",
+      "name": "易信",
+      "font_class": "yixin",
+      "unicode": "e99e",
+      "unicode_decimal": 59806
+    },
+    {
+      "icon_id": "9880170",
+      "name": "添加",
+      "font_class": "add-fill",
+      "unicode": "e6ab",
+      "unicode_decimal": 59051
+    }
+  ]
+}

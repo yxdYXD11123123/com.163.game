@@ -161,6 +161,41 @@ recommendMainFn()
 
 
 /**
+*  最新咨询  数据渲染
+*/
+$.each(newsContentList, function (i, j) {
+    $(".news-content-list").append(`
+    <li>
+    <a href="${j.link}">
+        <span>
+            <i>${j.year}</i>
+            <i>${j.date}</i>
+        </span>
+        <p>
+            <em>${j.text}</em>
+        </p>
+    </a>
+</li>
+    `)
+})
+
+/**
+*  最新活动  数据渲染
+*/
+$.each(newsContentActivityList, function (i, j) {
+    $(".news-content-activity div").append(`
+<a href="${j.link}">
+    <img src="${j.imgSrc}">
+    <p>${j.p}</p>
+</a>
+    `)
+    $(".news-content-activity ol").append(`<li></li>`)
+})
+$(".news-content-activity div a").eq(0).addClass("active")
+$(".news-content-activity ol li").eq(0).addClass("current")
+
+
+/**
  *  nav部分  功能
  */
 // 给nav部分  关注我们  添加鼠标移入事件
@@ -443,3 +478,22 @@ function responsiveRendering(liNum) {
     }
 }
 
+
+/**
+*  最新活动  小圆点功能
+*/
+$(".news-content-activity ol").on("click", "li", clickNewsCircle)
+function clickNewsCircle() {
+    $(this).addClass("current").siblings().removeClass("current")
+    let $index = $(this).index();
+    $(".news-content-activity div a").eq($index).addClass("active").siblings().removeClass("active")
+}
+
+// 显示分享列表功能
+$(".share-main li:last-child, .share-more").hover(enterShareMore, leaveShareMore)
+function enterShareMore() {
+    $(".share-more").stop().fadeIn()
+}
+function leaveShareMore() {
+    $(".share-more").stop().fadeOut()
+}
