@@ -254,6 +254,31 @@
   padding-left: 36px;
 }
 
+.gamenav-client-relax ul:before, .gamenav-client-relax ul:after,
+.gamenav-client-role ul:before,
+.gamenav-client-role ul:after,
+.gamenav-mobile-hot ul:before,
+.gamenav-mobile-hot ul:after,
+.gamenav-mobile-new ul:before,
+.gamenav-mobile-new ul:after {
+  content: "";
+  display: table;
+}
+
+.gamenav-client-relax ul:after,
+.gamenav-client-role ul:after,
+.gamenav-mobile-hot ul:after,
+.gamenav-mobile-new ul:after {
+  clear: both;
+}
+
+.gamenav-client-relax ul,
+.gamenav-client-role ul,
+.gamenav-mobile-hot ul,
+.gamenav-mobile-new ul {
+  *zoom: 1;
+}
+
 .gamenav-client-relax li,
 .gamenav-client-role li,
 .gamenav-mobile-hot li,
@@ -322,10 +347,13 @@
 /* 头部 start */
 header {
   position: relative;
+  max-width: 1920px;
   width: 100%;
+  margin: 0 auto;
 }
 
 .header-carousel {
+  position: relative;
   width: 100%;
   height: 950px;
 }
@@ -451,6 +479,126 @@ header {
 .header-carousel-content.color-white h2,
 .header-carousel-content.color-white h3 {
   color: white;
+}
+
+.header-carousel-prev,
+.header-carousel-next {
+  position: absolute;
+  display: none;
+  top: 50%;
+  width: 45px;
+  height: 80px;
+  background-color: #cf0f32;
+  cursor: pointer;
+}
+
+.header-carousel-prev i,
+.header-carousel-next i {
+  position: absolute;
+  display: block;
+  width: 8px;
+  height: 13px;
+  top: 50%;
+  left: 50%;
+  margin-top: -6px;
+  margin-left: -4px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.header-carousel-prev:hover,
+.header-carousel-next:hover {
+  background-color: #3c3d3f;
+}
+
+.header-carousel-prev:hover div,
+.header-carousel-next:hover div {
+  display: block;
+}
+
+.header-carousel-prev div,
+.header-carousel-next div {
+  position: absolute;
+  display: none;
+  top: 0;
+  width: 250px;
+  height: 80px;
+  background-color: #3c3d3f;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.header-carousel-prev span,
+.header-carousel-next span {
+  float: left;
+  display: block;
+  width: 80px;
+  height: 60px;
+  overflow: hidden;
+  margin-right: 10px;
+  background-image: url(../images/index/header_carousel_01.jpg);
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  background-position: left center;
+}
+
+.header-carousel-prev h2,
+.header-carousel-prev h3,
+.header-carousel-next h2,
+.header-carousel-next h3 {
+  overflow: hidden;
+  color: #fff;
+}
+
+.header-carousel-prev h2,
+.header-carousel-next h2 {
+  font-size: 20px;
+  line-height: 32px;
+  height: 32px;
+}
+
+.header-carousel-prev h3,
+.header-carousel-next h3 {
+  font-size: 14px;
+  line-height: 28px;
+  height: 28px;
+  font-weight: 400;
+}
+
+.header-carousel-prev {
+  left: 0;
+}
+
+.header-carousel-prev i {
+  background-image: url(../images/index/header_carousel_prev.png);
+}
+
+.header-carousel-prev div {
+  left: 45px;
+  border-left: 1px solid #767878;
+}
+
+.header-carousel-next {
+  right: 0;
+}
+
+.header-carousel-next i {
+  background-image: url(../images/index/header_carousel_next.png);
+}
+
+.header-carousel-next div {
+  right: 45px;
+  border-right: 1px solid #767878;
+}
+
+@media screen and (min-width: 1400px) {
+  .header-carousel-prev,
+  .header-carousel-next {
+    display: block;
+  }
 }
 
 .header-tab {

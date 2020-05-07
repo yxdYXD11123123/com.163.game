@@ -1,0 +1,188 @@
+@mixin clearfix {
+    &:before,
+    &:after {
+        content: "";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+    & {
+        *zoom: 1;
+    }
+}
+
+// 侧边导航 
+aside {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 70px;
+    li {
+        margin-bottom: 34px;
+    }
+    a {
+        position: relative;
+        display: block;
+        width: 14px;
+        height: 14px;
+    }
+    i {
+        position: absolute;
+        display: block;
+        top: 50%;
+        left: 50%;
+        margin-top: -2px;
+        margin-left: -2px;
+        width: 4px;
+        height: 4px;
+        background-color: #bebebe;
+        border-radius: 50%;
+        transition: all 0.5s ease-out 0s;
+    }
+    span {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 12px;
+        height: 12px;
+        border: 1px solid #bebebe;
+        border-radius: 50%;
+        opacity: 0;
+        transition: all 0.5s ease-out 0s;
+    }
+    .active {
+        i {
+            background-color: #d61522;
+            transform: scale(2.5,2.5);
+        }
+        span {
+            width: 26px;
+            height: 26px;
+            opacity: 1;
+        }
+    }
+}
+
+/**
+*   第一页  
+*/
+.section1 {
+    background-image: url(../images/hr/section01_bg.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    transition: all 0.5s ease-out 0s;
+    &.night {
+        background-image: url(../images/hr/section02_bg.jpg);
+    }
+}
+
+/* 导航部分 start */
+nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 6px 0;
+    background-color: #ffffff;
+    .container {
+        width: 1200px;
+        margin: 0 auto;
+        @include clearfix();
+    }
+}
+.nav-logo {
+    float: left;
+    width: 140px;
+    height: 50px;
+    background-image: url(../images/hr/spriter_logo.png);
+    background-repeat: no-repeat;
+    background-position: 0 -38px;
+    margin-right: 80px;
+}
+
+.nav-content {
+    float: left;
+    ul {
+        position: relative;
+        top: 6px;
+        @include clearfix();
+    }
+    li {
+        float: left;
+    }
+    a {
+        display: block;
+        height: 50px;
+        line-height: 46px;
+        font-size: 15px;
+        padding: 0 25px;
+        color: #3d3d39;
+        box-sizing: border-box;
+        border-bottom: 4px solid transparent;
+        transition: all 0.2s ease-in 0s;
+        &:hover {
+            color: #e60012;
+            border-color: #e60012;
+        }
+        &.active {
+            color: #e60012;
+            border-color: #e60012;
+        }
+    }
+}
+.nav-right {
+    float: right;
+    margin-top: 7px;
+    @include clearfix();
+    a {
+        float: left;
+        width: 60px;
+        line-height: 30px;
+        font-size: 14px;
+        height: 30px;
+        box-sizing: border-box;
+        text-align: center;
+    }
+}
+.nav-right-login {
+    background-color: #e60012;
+    border: 1px solid #cd0010;
+    color: white;
+    margin-right: 10px;
+    &:hover {
+        background-color: #cd0010;
+        border-color: #a9000d;
+    }
+}
+.nav-right-signup {
+    background-color: white;
+    color: #333333;
+    border: 1px solid #ccc;
+    &:hover {
+        background-color: #f2f2f2;
+        border-color: #bababa;
+    }
+}
+/* 导航部分 end */
+
+/* 切换场景 start */
+.change-scene {
+    position: absolute;
+    top: 62px;
+    right: 0;
+    a {
+        display: block;
+        width: 80px;
+        height: 80px;
+        background-image: url(../images/hr/change_scene_spriter.png);
+        background-repeat: no-repeat;
+        background-position: 0px -81px;
+        &.night {
+            background-position: 0px 0px;
+        }
+    }
+}
+/* 切换场景 end */

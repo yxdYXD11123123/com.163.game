@@ -209,25 +209,68 @@ function clickCircles() {
     if (flag == true) {
         // 关闭节流阀
         flag = false;
-        // 切换小圆点样式
-        $(this).addClass("active").siblings().removeClass("active");
         // 记录点击索引
         circle = $(this).index();
-        $(".header-carousel ul li").eq(circle).fadeIn(1200, function () {
-            // 控制节流阀
-            flag = true;
-        }).siblings().fadeOut(1200)
+        changeCarousel()
         // 清楚定时器，重新计时
         clearInterval(timer)
         timer = setInterval(autoPlay, 5000)
     }
 }
-// 写一个定时器，让轮播图定时轮播
-let timer = setInterval(autoPlay, 5000)
-function autoPlay() {
-    circle++
-    if (circle >= $(".header-carousel ol").children().length) {
-        circle = 0
+
+// 补充 左右按钮功能
+$('.header-carousel-prev').on("click", clickCarouselPrev)
+function clickCarouselPrev() {
+    clearInterval(timer);
+    prevCarousel();
+    timer = setInterval(autoPlay, 5000)
+}
+
+function prevCarousel() {
+    if (flag) {
+        flag = false;
+        circle--
+        if (circle == -1) {
+            circle = $(".header-carousel ol").children().length - 1
+        }
+        changeCarousel()
+    }
+}
+
+
+
+$('.header-carousel-next').on("click", clickCarouselNext)
+function clickCarouselNext() {
+    clearInterval(timer);
+    nextCarousel();
+    timer = setInterval(autoPlay, 5000)
+}
+
+function nextCarousel() {
+    if (flag) {
+        flag = false;
+        circle++
+        if (circle >= $(".header-carousel ol").children().length) {
+            circle = 0
+        }
+        changeCarousel()
+    }
+}
+
+// 切换 轮播图
+function changeCarousel() {
+    // 将左右按钮的内容改变
+    // 说明这是最后一个，让左右按钮的内容 分别为 倒数第二个 、 第一个 
+    if (circle == $(".header-carousel ol").children().length - 1) {
+        changeCarouselBtnContent(circle - 1, 0)
+    }
+    // 如果是第一个
+    else if (circle == 0) {
+        changeCarouselBtnContent($(".header-carousel ol").children().length - 1, circle + 1)
+    }
+    // 正常情况
+    else {
+        changeCarouselBtnContent(circle - 1, circle + 1)
     }
     // 切换小圆点样式
     $(".header-carousel ol li").eq(circle).addClass("active").siblings().removeClass("active");
@@ -235,6 +278,24 @@ function autoPlay() {
         // 控制节流阀
         flag = true;
     }).siblings().fadeOut(1200)
+}
+
+// 写一个根据参数，切换左右按钮内容的函数
+function changeCarouselBtnContent(prevIndex, NextIndex) {
+    // 左按钮内容为上一个
+    $(".header-carousel-prev span").css("backgroundImage", $(".header-carousel ul li").eq(prevIndex).css("backgroundImage"))
+    $(".header-carousel-prev h2").html(`${$(".header-carousel ul li").eq(prevIndex).find("h2").html()}`)
+    $(".header-carousel-prev h3").html(`${$(".header-carousel ul li").eq(prevIndex).find("h3").html()}`)
+    // 右按钮内容为下一个
+    $(".header-carousel-next span").css("backgroundImage", $(".header-carousel ul li").eq(NextIndex).css("backgroundImage"))
+    $(".header-carousel-next h2").html(`${$(".header-carousel ul li").eq(NextIndex).find("h2").html()}`)
+    $(".header-carousel-next h3").html(`${$(".header-carousel ul li").eq(NextIndex).find("h3").html()}`)
+}
+
+// 写一个定时器，让轮播图定时轮播
+let timer = setInterval(autoPlay, 5000)
+function autoPlay() {
+    nextCarousel()
 }
 
 /**
@@ -294,7 +355,7 @@ $viewMoreBtn.on("click", clickViewMore)
 function clickViewMore() {
     if ($viewMoreBtn.html() == "查看更多") {
         $(".bottom-gamenav .gamenav").animate({
-            height: 709
+            height: $(".bottom-gamenav .gamenav-mobile").outerHeight()
         }, 300)
         $viewMoreBtn.html("收起")
     }
