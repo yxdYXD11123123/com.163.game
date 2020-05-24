@@ -68,14 +68,35 @@ aside {
 /**
 *   第一页  
 */
+@keyframes section1bg {
+    0% {
+        background-position: top center;
+        background-size: 126% 130%;
+    }
+    99% {
+        background-position: top center;
+        background-size: 100% 100%;
+    }
+    100% {
+        background-position: 50% 50%;
+        background-size: cover;
+    }
+}
+
+.section {
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: all 0.5s ease-out 0s;
+}
+
 .section1 {
     background-image: url(../images/hr/section01_bg.jpg);
     background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    transition: all 0.5s ease-out 0s;
+    background-position: top center;
+    background-size: 126% 130%;
+    animation: section1bg .5s linear forwards .8s;
     &.night {
-        background-image: url(../images/hr/section02_bg.jpg);
+        background-image: url(../images/hr/section01_bg_night.jpg);
     }
 }
 
@@ -87,6 +108,7 @@ nav {
     width: 100%;
     padding: 6px 0;
     background-color: #ffffff;
+    z-index: 99;
     .container {
         width: 1200px;
         margin: 0 auto;
@@ -179,10 +201,267 @@ nav {
         height: 80px;
         background-image: url(../images/hr/change_scene_spriter.png);
         background-repeat: no-repeat;
-        background-position: 0px -81px;
+        background-position: 0px 0px;
         &.night {
-            background-position: 0px 0px;
+            background-position: 0px -81px;
         }
     }
 }
 /* 切换场景 end */
+
+/* 中心盒子 start */
+@keyframes rubberBand {
+    from {
+      -webkit-transform: scale3d(1, 1, 1);
+      transform: scale3d(1, 1, 1);
+    }
+    30% {
+      -webkit-transform: scale3d(1.25, 0.75, 1);
+      transform: scale3d(1.25, 0.75, 1);
+    }
+    40% {
+      -webkit-transform: scale3d(0.75, 1.25, 1);
+      transform: scale3d(0.75, 1.25, 1);
+    }
+    50% {
+      -webkit-transform: scale3d(1.15, 0.85, 1);
+      transform: scale3d(1.15, 0.85, 1);
+    }
+    65% {
+      -webkit-transform: scale3d(0.95, 1.05, 1);
+      transform: scale3d(0.95, 1.05, 1);
+    }
+    75% {
+      -webkit-transform: scale3d(1.05, 0.95, 1);
+      transform: scale3d(1.05, 0.95, 1);
+    }
+    to {
+      -webkit-transform: scale3d(1, 1, 1);
+      transform: scale3d(1, 1, 1);
+    }
+}
+
+.rubberBand {
+    animation: rubberBand 1s linear both 0.1s;
+}
+
+.section1-main {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -500px;
+    margin-top: -200px;
+    width: 1000px;
+    height: 540px;
+    text-align: center;
+}
+
+.section1-main-title {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    visibility: hidden;
+    h3 {
+        height: 23px;
+        width: 100%;
+        background-image: url(../images/hr/section1_search_h3.png);
+        background-position: center center;
+        background-repeat: no-repeat;
+        .night & {
+            background-image: url(../images/hr/section1_search_h3_night.png);
+        }
+    }
+    h2 {
+        margin-top: 10px;
+        height: 85px;
+        width: 100%;
+        background-image: url(../images/hr/section1_search_h2.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        .night & {
+            background-image: url(../images/hr/section1_search_h2_night.png);
+        }
+    }
+}
+
+// 搜索表单
+.section1-search {
+    position: relative;
+    margin: 0 auto;
+    margin-top: 90px;
+    width: 800px;
+    border: 2px solid #9bc8e9;
+    background-color: white;
+    @include clearfix();
+    .night & {
+        border: 2px solid #37898c;
+    }
+}
+
+.section1-search-city,
+.section1-search-jobkinds {
+    float: left;
+    position: relative;
+    text-align: center;
+    width: 80px;
+    height: 50px;
+    line-height: 50px;
+    cursor: pointer;
+    // outline 为none 可以让tabindex产生的outline消失
+    outline: none;
+    span {
+        display: inline-block;
+        font-size: 16px;
+        color: #000000;
+       
+    }
+    i {
+        display: inline-block;
+        vertical-align: middle;
+        width: 20px;
+        height: 20px;
+        background-image: url(../images/hr/spriter_logo.png);
+        background-position: -46px -170px;
+        background-repeat: no-repeat;
+        margin-left: 5px;
+    }
+    &.active {
+        i {
+            background-position: -77px -170px;
+        }
+        ul {
+            display: block;
+        }
+    }
+    ul {
+        position: absolute;
+        display: none;
+        width: 100%;
+        top: 50px;
+        left: 0;
+        box-sizing: border-box;
+        padding: 4px;
+        padding-top: 0px;
+        background-color: white;
+    }
+    li {
+        font-size: 14px;
+        color: #000000;
+        line-height: 24px;
+        margin-bottom: 2px;
+        &:hover {
+            background-color: #ddd;
+        }
+    }
+}
+
+.section1-search-jobkinds {
+    width: 100px;
+}
+
+.section1-search-keyword {
+    float: left;
+    width: 510px;
+    border: none;
+    height: 50px;
+    box-sizing: border-box;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.section1-search-history {
+    position: absolute;
+    display: none;
+    left: 50%;
+    margin-left: -220px;
+    top: 51px;
+    background-color: white;
+    border-radius: 4px;
+    width: 200px;
+    ul {
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+    li {
+        font-size: 13px;
+        text-align: left;
+        text-indent: 10px;
+        color: #000000;
+        line-height: 36px;
+        height: 36px;
+        cursor: auto;
+        &:hover {
+            background-color: #c8c8c9;
+        }
+    }
+}
+
+.section1-search-button {
+    float: left;
+    width: 110px;
+    height: 50px;
+    border: none;
+    text-align: center;
+    line-height: 50px;
+    background-color: #e60012;
+    font-size: 16px;
+    color: #EDEDED;
+    &:hover {
+        opacity: 0.9;
+    }
+}
+
+.section1-search-hot {
+    font-size: 14px;
+    color: #0a1331;
+    line-height: 24px;
+    padding: 10px 0;
+    .night & {
+        color: white;
+        a {
+            color: white;
+        }
+    }
+    a {
+        color: #0a1331;
+        margin-right: 10px;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+/* 中心盒子 end */
+
+/**
+*   第二页  
+*/
+.section2 {
+    background-image: url(../images/hr/section02_bg.jpg);
+    border-top: 2px solid #0a1331;
+    &.night {
+        background-image: url(../images/hr/section02_bg_night.jpg);
+    }
+}
+
+
+/**
+*   第三页  
+*/
+.section3 {
+    background-image: url(../images/hr/section03_bg.jpg);
+    border-top: 2px solid #0a1331;
+    &.night {
+        background-image: url(../images/hr/section03_bg_night.jpg);
+    }
+}
+
+
+/**
+*   第四页  
+*/
+.section4 {
+    background-image: url(../images/hr/section04_bg.jpg);
+    border-top: 2px solid #0a1331;
+    &.night {
+        background-image: url(../images/hr/section04_bg_night.jpg);
+    }
+}

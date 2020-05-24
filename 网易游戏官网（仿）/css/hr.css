@@ -63,17 +63,53 @@ aside .active span {
 /**
 *   第一页  
 */
-.section1 {
-  background-image: url(../images/hr/section01_bg.jpg);
+@-webkit-keyframes section1bg {
+  0% {
+    background-position: top center;
+    background-size: 126% 130%;
+  }
+  99% {
+    background-position: top center;
+    background-size: 100% 100%;
+  }
+  100% {
+    background-position: 50% 50%;
+    background-size: cover;
+  }
+}
+@keyframes section1bg {
+  0% {
+    background-position: top center;
+    background-size: 126% 130%;
+  }
+  99% {
+    background-position: top center;
+    background-size: 100% 100%;
+  }
+  100% {
+    background-position: 50% 50%;
+    background-size: cover;
+  }
+}
+
+.section {
   background-repeat: no-repeat;
-  background-position: center center;
   background-size: cover;
   -webkit-transition: all 0.5s ease-out 0s;
   transition: all 0.5s ease-out 0s;
 }
 
+.section1 {
+  background-image: url(../images/hr/section01_bg.jpg);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 126% 130%;
+  -webkit-animation: section1bg .5s linear forwards .8s;
+          animation: section1bg .5s linear forwards .8s;
+}
+
 .section1.night {
-  background-image: url(../images/hr/section02_bg.jpg);
+  background-image: url(../images/hr/section01_bg_night.jpg);
 }
 
 /* 导航部分 start */
@@ -84,6 +120,7 @@ nav {
   width: 100%;
   padding: 6px 0;
   background-color: #ffffff;
+  z-index: 99;
 }
 
 nav .container {
@@ -230,12 +267,336 @@ nav .container {
   height: 80px;
   background-image: url(../images/hr/change_scene_spriter.png);
   background-repeat: no-repeat;
-  background-position: 0px -81px;
-}
-
-.change-scene a.night {
   background-position: 0px 0px;
 }
 
+.change-scene a.night {
+  background-position: 0px -81px;
+}
+
 /* 切换场景 end */
+/* 中心盒子 start */
+@-webkit-keyframes rubberBand {
+  from {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+  30% {
+    -webkit-transform: scale3d(1.25, 0.75, 1);
+    transform: scale3d(1.25, 0.75, 1);
+  }
+  40% {
+    -webkit-transform: scale3d(0.75, 1.25, 1);
+    transform: scale3d(0.75, 1.25, 1);
+  }
+  50% {
+    -webkit-transform: scale3d(1.15, 0.85, 1);
+    transform: scale3d(1.15, 0.85, 1);
+  }
+  65% {
+    -webkit-transform: scale3d(0.95, 1.05, 1);
+    transform: scale3d(0.95, 1.05, 1);
+  }
+  75% {
+    -webkit-transform: scale3d(1.05, 0.95, 1);
+    transform: scale3d(1.05, 0.95, 1);
+  }
+  to {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+@keyframes rubberBand {
+  from {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+  30% {
+    -webkit-transform: scale3d(1.25, 0.75, 1);
+    transform: scale3d(1.25, 0.75, 1);
+  }
+  40% {
+    -webkit-transform: scale3d(0.75, 1.25, 1);
+    transform: scale3d(0.75, 1.25, 1);
+  }
+  50% {
+    -webkit-transform: scale3d(1.15, 0.85, 1);
+    transform: scale3d(1.15, 0.85, 1);
+  }
+  65% {
+    -webkit-transform: scale3d(0.95, 1.05, 1);
+    transform: scale3d(0.95, 1.05, 1);
+  }
+  75% {
+    -webkit-transform: scale3d(1.05, 0.95, 1);
+    transform: scale3d(1.05, 0.95, 1);
+  }
+  to {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+.rubberBand {
+  -webkit-animation: rubberBand 1s linear both 0.1s;
+          animation: rubberBand 1s linear both 0.1s;
+}
+
+.section1-main {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -500px;
+  margin-top: -200px;
+  width: 1000px;
+  height: 540px;
+  text-align: center;
+}
+
+.section1-main-title {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  visibility: hidden;
+}
+
+.section1-main-title h3 {
+  height: 23px;
+  width: 100%;
+  background-image: url(../images/hr/section1_search_h3.png);
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.night .section1-main-title h3 {
+  background-image: url(../images/hr/section1_search_h3_night.png);
+}
+
+.section1-main-title h2 {
+  margin-top: 10px;
+  height: 85px;
+  width: 100%;
+  background-image: url(../images/hr/section1_search_h2.png);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.night .section1-main-title h2 {
+  background-image: url(../images/hr/section1_search_h2_night.png);
+}
+
+.section1-search {
+  position: relative;
+  margin: 0 auto;
+  margin-top: 90px;
+  width: 800px;
+  border: 2px solid #9bc8e9;
+  background-color: white;
+}
+
+.section1-search:before, .section1-search:after {
+  content: "";
+  display: table;
+}
+
+.section1-search:after {
+  clear: both;
+}
+
+.section1-search {
+  *zoom: 1;
+}
+
+.night .section1-search {
+  border: 2px solid #37898c;
+}
+
+.section1-search-city,
+.section1-search-jobkinds {
+  float: left;
+  position: relative;
+  text-align: center;
+  width: 80px;
+  height: 50px;
+  line-height: 50px;
+  cursor: pointer;
+  outline: none;
+}
+
+.section1-search-city span,
+.section1-search-jobkinds span {
+  display: inline-block;
+  font-size: 16px;
+  color: #000000;
+}
+
+.section1-search-city i,
+.section1-search-jobkinds i {
+  display: inline-block;
+  vertical-align: middle;
+  width: 20px;
+  height: 20px;
+  background-image: url(../images/hr/spriter_logo.png);
+  background-position: -46px -170px;
+  background-repeat: no-repeat;
+  margin-left: 5px;
+}
+
+.section1-search-city.active i,
+.section1-search-jobkinds.active i {
+  background-position: -77px -170px;
+}
+
+.section1-search-city.active ul,
+.section1-search-jobkinds.active ul {
+  display: block;
+}
+
+.section1-search-city ul,
+.section1-search-jobkinds ul {
+  position: absolute;
+  display: none;
+  width: 100%;
+  top: 50px;
+  left: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 4px;
+  padding-top: 0px;
+  background-color: white;
+}
+
+.section1-search-city li,
+.section1-search-jobkinds li {
+  font-size: 14px;
+  color: #000000;
+  line-height: 24px;
+  margin-bottom: 2px;
+}
+
+.section1-search-city li:hover,
+.section1-search-jobkinds li:hover {
+  background-color: #ddd;
+}
+
+.section1-search-jobkinds {
+  width: 100px;
+}
+
+.section1-search-keyword {
+  float: left;
+  width: 510px;
+  border: none;
+  height: 50px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.section1-search-history {
+  position: absolute;
+  display: none;
+  left: 50%;
+  margin-left: -220px;
+  top: 51px;
+  background-color: white;
+  border-radius: 4px;
+  width: 200px;
+}
+
+.section1-search-history ul {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.section1-search-history li {
+  font-size: 13px;
+  text-align: left;
+  text-indent: 10px;
+  color: #000000;
+  line-height: 36px;
+  height: 36px;
+  cursor: auto;
+}
+
+.section1-search-history li:hover {
+  background-color: #c8c8c9;
+}
+
+.section1-search-button {
+  float: left;
+  width: 110px;
+  height: 50px;
+  border: none;
+  text-align: center;
+  line-height: 50px;
+  background-color: #e60012;
+  font-size: 16px;
+  color: #EDEDED;
+}
+
+.section1-search-button:hover {
+  opacity: 0.9;
+}
+
+.section1-search-hot {
+  font-size: 14px;
+  color: #0a1331;
+  line-height: 24px;
+  padding: 10px 0;
+}
+
+.night .section1-search-hot {
+  color: white;
+}
+
+.night .section1-search-hot a {
+  color: white;
+}
+
+.section1-search-hot a {
+  color: #0a1331;
+  margin-right: 10px;
+}
+
+.section1-search-hot a:hover {
+  text-decoration: underline;
+}
+
+/* 中心盒子 end */
+/**
+*   第二页  
+*/
+.section2 {
+  background-image: url(../images/hr/section02_bg.jpg);
+  border-top: 2px solid #0a1331;
+}
+
+.section2.night {
+  background-image: url(../images/hr/section02_bg_night.jpg);
+}
+
+/**
+*   第三页  
+*/
+.section3 {
+  background-image: url(../images/hr/section03_bg.jpg);
+  border-top: 2px solid #0a1331;
+}
+
+.section3.night {
+  background-image: url(../images/hr/section03_bg_night.jpg);
+}
+
+/**
+*   第四页  
+*/
+.section4 {
+  background-image: url(../images/hr/section04_bg.jpg);
+  border-top: 2px solid #0a1331;
+}
+
+.section4.night {
+  background-image: url(../images/hr/section04_bg_night.jpg);
+}
 /*# sourceMappingURL=hr.css.map */
